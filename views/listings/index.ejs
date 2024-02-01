@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1 class="underline ml-4">All Listings</h1>
+    <form action="/newData" method="GET">
+      <button>Add new</button>
+    </form>
+    <ul>
+      <% for(let listing of allData) { %>
+      <li>
+        <a href="/showdata/<%=listing.id%>"><%= listing.title%></a> &nbsp; &nbsp;
+
+        <form action="/edit/<%=listing.id%>" method="GET">
+           <button>Edit</button>
+        </form>
+
+        <form action="/delt/<%=listing._id%>?_method=DELETE" method="POST">
+           <button>Delete</button>
+        </form>
+      </li>
+      <%}%>
+    </ul>
+  </body>
+</html>
