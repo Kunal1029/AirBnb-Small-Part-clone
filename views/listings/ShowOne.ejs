@@ -1,9 +1,48 @@
-<% layout("/layouts/boilerplate") %>
+<% layout("/layouts/boilerplate") %> <%- include('../includes/header.ejs') %>
 <body>
-    <h3>ID : <%=oneData.id%></h3>
-     <h4>Title : <%=oneData.title%></h4>
-     <h4>description : <%=oneData.description%></h4>
-     <h4>Price : &#8377; <%=oneData.price.toLocaleString("en-IN")%></h4>
-     <h4>location : <%=oneData.location%></h4>
-     <h4>country : <%=oneData.country%></h4>
+  <!-- <h3>ID : <%=oneData.id%></h3>
+  <h4>Title : <%=oneData.title%></h4>
+  <h4>description : <%=oneData.description%></h4>
+  <h4>Price : &#8377; <%=oneData.price.toLocaleString("en-IN")%></h4>
+  <h4>location : <%=oneData.location%></h4>
+  <h4>country : <%=oneData.country%></h4> -->
+
+  <div class="container">
+    <h1 class="mt-3 mb-3  offset-3">All Listings</h1>
+    <!-- <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1"> -->
+      <div class="card col-7 offset-3 ">
+        <img
+          src="<%=oneData.image%>"
+          class="card-img-top"
+          alt="oneData_image"
+          style="height: 40vh"
+        />
+
+        <div class="card-img-overlay">kunal</div>
+
+        <div class="card-body">
+          <h5 class="card-title"><%=oneData.title%></h5>
+          <p class="card-text"><%=oneData.description%></p>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i><%=oneData.location%>, <%=oneData.country%></i> <br />
+            <b> &#8377; <%=oneData.price.toLocaleString("en-IN")%> / night</b>
+          </li>
+        </ul>
+      </div>
+    <!-- </div> -->
+  </div>
+
+  <form action="/edit/<%=oneData.id%>" method="GET" class="offset-3 mb-2">
+    <button class="btn btn-danger">Edit</button>
+  </form>
+
+  <form action="/delt/<%=oneData._id%>?_method=DELETE" method="POST" class="offset-3">
+    <button class="btn btn-dark">Delete</button>
+  </form>
+  <%- include('../includes/footer.ejs') %>
 </body>
+
+

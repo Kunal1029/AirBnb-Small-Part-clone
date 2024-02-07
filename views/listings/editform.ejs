@@ -1,14 +1,79 @@
-<% layout("layouts/boilerplate.ejs") %>
-
+<% layout("layouts/boilerplate.ejs") %> <%- include('../includes/header.ejs') %>
 <body>
-    <h1 class="bg-black">Edit</h1>
-    <form action="/updating/<%=e._id%>?_method=PUT" method="POST">
-        <input type="text" name="listing[title]" value="<%=e.title%>" placeholder="title"><br>
-        <textarea type="text" name="listing[description]"  placeholder="description"><%=e.description%></textarea><br>
-        <input type="text" name="listing[image]" value="<%=e.image%>" placeholder="image"><br>
-        <input type="number" name="listing[price]" value="<%=e.price%>" placeholder="price"><br>
-        <input type="text" name="listing[location]" value="<%=e.location%>" placeholder="location"><br>
-        <input type="text" name="listing[country]" value="<%=e.country%>" placeholder="country"><br>
-        <button>Submit</button>
-    </form>
+
+  <h4 class="mb-3 mt-3 text-center">Edit Details</h4>
+  <div class="row">
+    <div class="col-md-7 offset-2">
+      <form action="/updating/<%=e._id%>?_method=PUT" method="POST">
+        <div class="mb-1">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="listing[title]"
+            value="<%=e.title%>"
+            placeholder="title"
+            class="form-control"
+          /><br />
+        </div>
+        <div class="mb-1">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            type="text"
+            name="listing[description]"
+            class="form-control"
+            placeholder="description"
+          >
+<%=e.description%></textarea
+          ><br />
+        </div>
+        <div class="mb-1">
+          <label for="image" class="form-label">Image Link</label>
+          <input
+            type="text"
+            name="listing[image]"
+            value="<%=e.image%>"
+            class="form-control"
+            placeholder="image"
+          /><br />
+        </div>
+        <div class="row">
+          <div class="mb-1 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              name="listing[price]"
+              value="<%=e.price%>"
+              class="form-control"
+              placeholder="price"
+            /><br />
+          </div>
+
+          <div class="mb-1 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              type="text"
+              name="listing[country]"
+              value="<%=e.country%>"
+              class="form-control"
+              placeholder="country"
+            /><br />
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            name="listing[location]"
+            value="<%=e.location%>"
+            class="form-control"
+            placeholder="location"
+          /><br />
+        </div>
+        <button class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('../includes/footer.ejs') %>
 </body>

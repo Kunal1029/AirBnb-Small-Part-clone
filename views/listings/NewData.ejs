@@ -1,14 +1,73 @@
-<% layout("layouts/boilerplate.ejs") %>
-
+<% layout("layouts/boilerplate.ejs") %> <%- include('../includes/header.ejs') %>
 <body>
-    <h1 class="bg-red-500">Hi ks</h1>
-    <form action="/listings" method="POST">
-        <input type="text" name="listing[title]" placeholder="title"><br>
-        <textarea type="text" name="listing[description]" placeholder="description"></textarea><br>
-        <input type="text" name="listing[image]" placeholder="image"><br>
-        <input type="number" name="listing[price]" placeholder="price"><br>
-        <input type="text" name="listing[location]" placeholder="location"><br>
-        <input type="text" name="listing[country]" placeholder="country"><br>
-        <button>Submit</button>
-    </form>
+  <h4 class="mb-3 mt-3 text-center">
+    Add new list by filling required details
+  </h4>
+  <div class="row">
+    <div class="col-md-7 offset-2">
+      <form action="/listings" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="listing[title]"
+            placeholder="title"
+            class="form-control"
+          /><br />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            type="text"
+            name="listing[description]"
+            class="form-control"
+            placeholder="description"
+          ></textarea
+          ><br />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image Link</label>
+          <input
+            type="text"
+            name="listing[image]"
+            class="form-control"
+            placeholder="image"
+          /><br />
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              name="listing[price]"
+              class="form-control"
+              placeholder="price"
+            /><br />
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              type="text"
+              name="listing[country]"
+              class="form-control"
+              placeholder="country"
+            /><br />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            name="listing[location]"
+            class="form-control"
+            placeholder="location"
+          /><br />
+        </div>
+        <button class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+  </div>
+  <%- include('../includes/footer.ejs') %>
 </body>
