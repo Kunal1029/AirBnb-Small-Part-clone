@@ -1,13 +1,19 @@
-<% layout("layouts/boilerplate.ejs") %> <%- include('../includes/header.ejs') %>
+<% layout("layouts/boilerplate.ejs") %>
 <body>
-
+  <%- include('../includes/header.ejs') %>
   <h4 class="mb-3 mt-3 text-center">Edit Details</h4>
   <div class="row">
     <div class="col-md-7 offset-2">
-      <form action="/updating/<%=e._id%>?_method=PUT" method="POST">
+      <form
+        action="/updating/<%=e._id%>?_method=PUT"
+        class="needs-validation"
+        novalidate
+        method="POST"
+      >
         <div class="mb-1">
           <label for="title" class="form-label">Title</label>
           <input
+            required
             type="text"
             name="listing[title]"
             value="<%=e.title%>"
@@ -18,6 +24,7 @@
         <div class="mb-1">
           <label for="description" class="form-label">Description</label>
           <textarea
+            required
             type="text"
             name="listing[description]"
             class="form-control"
@@ -30,6 +37,7 @@
           <label for="image" class="form-label">Image Link</label>
           <input
             type="text"
+            required
             name="listing[image]"
             value="<%=e.image%>"
             class="form-control"
@@ -40,6 +48,7 @@
           <div class="mb-1 col-md-4">
             <label for="price" class="form-label">Price</label>
             <input
+              required
               type="number"
               name="listing[price]"
               value="<%=e.price%>"
@@ -51,6 +60,7 @@
           <div class="mb-1 col-md-8">
             <label for="country" class="form-label">Country</label>
             <input
+              required
               type="text"
               name="listing[country]"
               value="<%=e.country%>"
@@ -64,6 +74,7 @@
           <label for="location" class="form-label">Location</label>
           <input
             type="text"
+            required
             name="listing[location]"
             value="<%=e.location%>"
             class="form-control"
